@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Pasien</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pendaftaran Pasien</h1>
+        <form id="registrationForm">
+            <label for="name">Nama Lengkap:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="dob">Tanggal Lahir:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="gender">Jenis Kelamin:</label>
+            <select id="gender" name="gender" required>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+            </select>
+
+            <button type="button" id="scanButton">Scan Fingerprint</button>
+            <input type="hidden" id="fingerprint" name="fingerprint">
+
+            <button><a href="daftar.html" class="submit">Daftar</a></button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('scanButton').addEventListener('click', function() {
+            // Simulasi pemindaian fingerprint
+            // Di sini Anda harus menambahkan logika untuk berinteraksi dengan perangkat fingerprint
+            const fingerprintData = "data-fingerprint"; // Ganti dengan data fingerprint yang sebenarnya
+            document.getElementById('fingerprint').value = fingerprintData;
+            alert("Fingerprint berhasil dipindai!");
+        });
+
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Di sini Anda dapat menambahkan logika untuk mengirim data ke server
+            alert("Pendaftaran berhasil!");
+            // Reset form setelah pendaftaran
+            this.reset();
+        });
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</body>
+</html>
